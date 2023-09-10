@@ -17,13 +17,6 @@ app.use(morgan('tiny'));
 app.use(authJwt());
 app.use(errorHandler);
 
-//Routes
-const adminRoutes = require('./routes/admin');
-
-const api = process.env.API_URL;
-
-app.use(`${api}/admin`, adminRoutes)
-
 //Database
 const con = mysql.createConnection({
     host: "localhost",
@@ -44,3 +37,7 @@ app.listen(3000, ()=>{
 
     console.log('server is running http://localhost:3000');
 })
+
+//Routes
+const adminRoutes = require('./routes/admin');
+app.use(`api/admin`, adminRoutes)
