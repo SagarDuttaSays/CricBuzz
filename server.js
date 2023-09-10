@@ -7,10 +7,6 @@ require('dotenv/config');
 const authJwt = require('./helpers/jwt');
 const errorHandler = require('./helpers/error-handler');
 
-//can be used for connecting with front end -- SCALABILITY
-app.use(cors());
-app.options('*', cors())
-
 //middleware
 app.use(express.json());
 app.use(morgan('tiny'));
@@ -29,15 +25,13 @@ const con = mysql.createConnection({
     if (err) throw err;
     console.log('Connected!');
   });
-  
-  module.exports = con;
 
 //Server
 app.listen(3000, ()=>{
-
     console.log('server is running http://localhost:3000');
 })
 
-//Routes
-const adminRoutes = require('./routes/admin');
-app.use(`api/admin`, adminRoutes)
+//Route
+app.use(`/api/admin`, require('./routes/admin'))
+
+module.exports = con;
