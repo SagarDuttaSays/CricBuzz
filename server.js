@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const mysql = require('mysql2');
 const morgan = require('morgan');
-const cors = require('cors');
 require('dotenv/config');
 const authJwt = require('./helpers/jwt');
 const errorHandler = require('./helpers/error-handler');
