@@ -18,6 +18,7 @@ app.listen(3000, () => {
 
 // Routes
 app.use(`/api/admin`, require('./routes/admin'));
+app.use(`/api/matches`, require('./routes/match'))
 
 // Export the 'app' object
 module.exports = app;

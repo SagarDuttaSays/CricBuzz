@@ -3,7 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const mysql = require('mysql2');
-const secret = "jaishriram"
+const secret = "vitxworkindia"
 
 // Create a new database connection
 const con = mysql.createConnection({
